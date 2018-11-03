@@ -64,7 +64,7 @@ void setup() {
 long oldPosition  = -999;
 
 void loop() {
-  long newPosition = myEnc.read();
+  unsigned long newPosition = myEnc.read() + 2000000;
   if (newPosition != oldPosition) {
     int rotation = newPosition % 80;
 
@@ -109,6 +109,9 @@ void loop() {
     oldPosition = newPosition;
     Serial.print("New encoder position: ");
     Serial.println(newPosition);
+
+    Serial.print("New rotation: ");
+    Serial.println(rotation);
   }
 
 
