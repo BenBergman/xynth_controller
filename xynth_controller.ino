@@ -72,24 +72,6 @@ void loop() {
     float xAxis = sin(rotation * 2.0 * PI / 80.0);
     float yAxis = -cos(rotation * 2.0 * PI / 80.0);
 
-    // May axis to follow a perfect square from -1 to 1
-    if (rotation < 10) {
-      xAxis = mapFloat(rotation * 1.0, 0.0, 10.0, 0.0, 1.0);
-      yAxis = -1.0;
-    } else if (rotation < 30) {
-      xAxis = 1.0;
-      yAxis = mapFloat(rotation * 1.0, 10.0, 30.0, -1.0, 1.0);
-    } else if (rotation < 50) {
-      xAxis = mapFloat(rotation * 1.0, 30.0, 50.0, 1.0, -1.0);
-      yAxis = 1.0;
-    } else if (rotation < 70) {
-      xAxis = -1.0;
-      yAxis = mapFloat(rotation * 1.0, 50.0, 70.0, 1.0, -1.0);
-    } else {
-      xAxis = mapFloat(rotation * 1.0, 70.0, 80.0, -1.0, 0.0);
-      yAxis = -1.0;
-    }
-
     // Map axis to fill the axis range
     int16_t xMapped = xAxis * 32767.0;
     int16_t yMapped = yAxis * 32767.0;
